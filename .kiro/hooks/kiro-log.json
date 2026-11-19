@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "kiro-log",
+      "description": "Run manually at the end of a work session. Asks the agent to add short, factual notes to docs/KIRO_LOG.md for the hackathon write-up.",
+      "trigger": "Manual",
+      "action": {
+        "type": "agent",
+        "prompt": "Update docs/KIRO_LOG.md for the hackathon write-up. Read the file first. Under the heading for the Kiro feature that mattered most in this session (specs, steering, hooks, custom agents, MCP, property-based testing, powers, Crew, IDE, CLI, Web), add one to three short factual bullets: what you used it for, what it caught or saved, and one concrete example (a property that found a bug, a hook that blocked an edit, a steering rule that changed your output). Do not invent results. Do not edit any other file. Keep each bullet under 40 words."
+      },
+      "enabled": true
+    }
+  ]
+}

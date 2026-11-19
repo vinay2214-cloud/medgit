@@ -1,0 +1,1034 @@
+{
+  "schema": "medgit.formulary/1",
+  "synthetic": true,
+  "notice": "Synthetic demo formulary. Names, strengths and forms only. No dosing guidance, no interaction data.",
+  "items": [
+    {
+      "id": "metformin-tab",
+      "ingredient": "metformin",
+      "display": "Metformin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          250
+        ],
+        [
+          500
+        ],
+        [
+          850
+        ],
+        [
+          1000
+        ]
+      ],
+      "aliases": [
+        "metformin",
+        "metformin hcl",
+        "glucophage",
+        "glycomet"
+      ]
+    },
+    {
+      "id": "glimepiride-tab",
+      "ingredient": "glimepiride",
+      "display": "Glimepiride tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "aliases": [
+        "glimepiride",
+        "amaryl"
+      ]
+    },
+    {
+      "id": "gliclazide-tab",
+      "ingredient": "gliclazide",
+      "display": "Gliclazide tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          40
+        ],
+        [
+          80
+        ]
+      ],
+      "aliases": [
+        "gliclazide",
+        "diamicron",
+        "reclide"
+      ]
+    },
+    {
+      "id": "sitagliptin-tab",
+      "ingredient": "sitagliptin",
+      "display": "Sitagliptin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          25
+        ],
+        [
+          50
+        ],
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "sitagliptin",
+        "januvia"
+      ]
+    },
+    {
+      "id": "atorvastatin-tab",
+      "ingredient": "atorvastatin",
+      "display": "Atorvastatin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          10
+        ],
+        [
+          20
+        ],
+        [
+          40
+        ],
+        [
+          80
+        ]
+      ],
+      "aliases": [
+        "atorvastatin",
+        "lipitor",
+        "atorva"
+      ]
+    },
+    {
+      "id": "rosuvastatin-tab",
+      "ingredient": "rosuvastatin",
+      "display": "Rosuvastatin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          5
+        ],
+        [
+          10
+        ],
+        [
+          20
+        ],
+        [
+          40
+        ]
+      ],
+      "aliases": [
+        "rosuvastatin",
+        "crestor",
+        "rosuvas"
+      ]
+    },
+    {
+      "id": "amlodipine-tab",
+      "ingredient": "amlodipine",
+      "display": "Amlodipine tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          2.5
+        ],
+        [
+          5
+        ],
+        [
+          10
+        ]
+      ],
+      "aliases": [
+        "amlodipine",
+        "norvasc",
+        "amlong",
+        "stamlo"
+      ]
+    },
+    {
+      "id": "telmisartan-tab",
+      "ingredient": "telmisartan",
+      "display": "Telmisartan tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          20
+        ],
+        [
+          40
+        ],
+        [
+          80
+        ]
+      ],
+      "aliases": [
+        "telmisartan",
+        "telma",
+        "micardis"
+      ]
+    },
+    {
+      "id": "losartan-tab",
+      "ingredient": "losartan",
+      "display": "Losartan tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          25
+        ],
+        [
+          50
+        ],
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "losartan",
+        "cozaar",
+        "losar"
+      ]
+    },
+    {
+      "id": "enalapril-tab",
+      "ingredient": "enalapril",
+      "display": "Enalapril tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          2.5
+        ],
+        [
+          5
+        ],
+        [
+          10
+        ],
+        [
+          20
+        ]
+      ],
+      "aliases": [
+        "enalapril",
+        "envas"
+      ]
+    },
+    {
+      "id": "ramipril-cap",
+      "ingredient": "ramipril",
+      "display": "Ramipril capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          1.25
+        ],
+        [
+          2.5
+        ],
+        [
+          5
+        ],
+        [
+          10
+        ]
+      ],
+      "aliases": [
+        "ramipril",
+        "cardace",
+        "ramace"
+      ]
+    },
+    {
+      "id": "metoprolol-tab",
+      "ingredient": "metoprolol",
+      "display": "Metoprolol tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          25
+        ],
+        [
+          50
+        ],
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "metoprolol",
+        "betaloc",
+        "metolar"
+      ]
+    },
+    {
+      "id": "atenolol-tab",
+      "ingredient": "atenolol",
+      "display": "Atenolol tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          25
+        ],
+        [
+          50
+        ],
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "atenolol",
+        "tenormin",
+        "aten"
+      ]
+    },
+    {
+      "id": "bisoprolol-tab",
+      "ingredient": "bisoprolol",
+      "display": "Bisoprolol tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          1.25
+        ],
+        [
+          2.5
+        ],
+        [
+          5
+        ],
+        [
+          10
+        ]
+      ],
+      "aliases": [
+        "bisoprolol",
+        "concor"
+      ]
+    },
+    {
+      "id": "furosemide-tab",
+      "ingredient": "furosemide",
+      "display": "Furosemide tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          20
+        ],
+        [
+          40
+        ],
+        [
+          80
+        ]
+      ],
+      "aliases": [
+        "furosemide",
+        "frusemide",
+        "lasix"
+      ]
+    },
+    {
+      "id": "spironolactone-tab",
+      "ingredient": "spironolactone",
+      "display": "Spironolactone tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          25
+        ],
+        [
+          50
+        ],
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "spironolactone",
+        "aldactone"
+      ]
+    },
+    {
+      "id": "hydrochlorothiazide-tab",
+      "ingredient": "hydrochlorothiazide",
+      "display": "Hydrochlorothiazide tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          12.5
+        ],
+        [
+          25
+        ],
+        [
+          50
+        ]
+      ],
+      "aliases": [
+        "hydrochlorothiazide",
+        "hctz",
+        "aquazide"
+      ]
+    },
+    {
+      "id": "aspirin-tab",
+      "ingredient": "aspirin",
+      "display": "Aspirin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          75
+        ],
+        [
+          81
+        ],
+        [
+          100
+        ],
+        [
+          150
+        ],
+        [
+          300
+        ],
+        [
+          325
+        ]
+      ],
+      "aliases": [
+        "aspirin",
+        "ecosprin",
+        "asa"
+      ]
+    },
+    {
+      "id": "clopidogrel-tab",
+      "ingredient": "clopidogrel",
+      "display": "Clopidogrel tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          75
+        ]
+      ],
+      "aliases": [
+        "clopidogrel",
+        "plavix",
+        "clopilet"
+      ]
+    },
+    {
+      "id": "warfarin-tab",
+      "ingredient": "warfarin",
+      "display": "Warfarin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "aliases": [
+        "warfarin",
+        "coumadin",
+        "warf"
+      ]
+    },
+    {
+      "id": "paracetamol-tab",
+      "ingredient": "paracetamol",
+      "display": "Paracetamol tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          500
+        ],
+        [
+          650
+        ],
+        [
+          1000
+        ]
+      ],
+      "aliases": [
+        "paracetamol",
+        "acetaminophen",
+        "dolo",
+        "crocin",
+        "calpol",
+        "panadol"
+      ]
+    },
+    {
+      "id": "ibuprofen-tab",
+      "ingredient": "ibuprofen",
+      "display": "Ibuprofen tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          200
+        ],
+        [
+          400
+        ],
+        [
+          600
+        ]
+      ],
+      "aliases": [
+        "ibuprofen",
+        "brufen",
+        "advil"
+      ]
+    },
+    {
+      "id": "diclofenac-tab",
+      "ingredient": "diclofenac",
+      "display": "Diclofenac tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          50
+        ],
+        [
+          75
+        ],
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "diclofenac",
+        "voveran",
+        "voltaren"
+      ]
+    },
+    {
+      "id": "cotrimoxazole-tab",
+      "ingredient": "sulfamethoxazole/trimethoprim",
+      "display": "Cotrimoxazole tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          400,
+          80
+        ],
+        [
+          800,
+          160
+        ]
+      ],
+      "aliases": [
+        "cotrimoxazole",
+        "co trimoxazole",
+        "sulfamethoxazole trimethoprim",
+        "bactrim",
+        "septrin",
+        "septran"
+      ]
+    },
+    {
+      "id": "amoxicillin-cap",
+      "ingredient": "amoxicillin",
+      "display": "Amoxicillin capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          250
+        ],
+        [
+          500
+        ]
+      ],
+      "aliases": [
+        "amoxicillin",
+        "amoxil",
+        "mox"
+      ]
+    },
+    {
+      "id": "amoxicillin-clavulanate-tab",
+      "ingredient": "amoxicillin/clavulanate",
+      "display": "Amoxicillin-clavulanate tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          500,
+          125
+        ],
+        [
+          875,
+          125
+        ]
+      ],
+      "aliases": [
+        "amoxicillin clavulanate",
+        "co amoxiclav",
+        "augmentin",
+        "clavam"
+      ]
+    },
+    {
+      "id": "azithromycin-tab",
+      "ingredient": "azithromycin",
+      "display": "Azithromycin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          250
+        ],
+        [
+          500
+        ]
+      ],
+      "aliases": [
+        "azithromycin",
+        "zithromax",
+        "azithral"
+      ]
+    },
+    {
+      "id": "ciprofloxacin-tab",
+      "ingredient": "ciprofloxacin",
+      "display": "Ciprofloxacin tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          250
+        ],
+        [
+          500
+        ],
+        [
+          750
+        ]
+      ],
+      "aliases": [
+        "ciprofloxacin",
+        "ciplox",
+        "cipro"
+      ]
+    },
+    {
+      "id": "doxycycline-cap",
+      "ingredient": "doxycycline",
+      "display": "Doxycycline capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "doxycycline",
+        "vibramycin",
+        "doxy"
+      ]
+    },
+    {
+      "id": "omeprazole-cap",
+      "ingredient": "omeprazole",
+      "display": "Omeprazole capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          10
+        ],
+        [
+          20
+        ],
+        [
+          40
+        ]
+      ],
+      "aliases": [
+        "omeprazole",
+        "prilosec",
+        "omez"
+      ]
+    },
+    {
+      "id": "pantoprazole-tab",
+      "ingredient": "pantoprazole",
+      "display": "Pantoprazole tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          20
+        ],
+        [
+          40
+        ]
+      ],
+      "aliases": [
+        "pantoprazole",
+        "pantop",
+        "protonix"
+      ]
+    },
+    {
+      "id": "levothyroxine-tab",
+      "ingredient": "levothyroxine",
+      "display": "Levothyroxine tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mcg",
+      "strengths": [
+        [
+          25
+        ],
+        [
+          50
+        ],
+        [
+          75
+        ],
+        [
+          88
+        ],
+        [
+          100
+        ],
+        [
+          112
+        ],
+        [
+          125
+        ]
+      ],
+      "aliases": [
+        "levothyroxine",
+        "thyroxine",
+        "thyronorm",
+        "eltroxin",
+        "synthroid"
+      ]
+    },
+    {
+      "id": "salbutamol-inhaler",
+      "ingredient": "salbutamol",
+      "display": "Salbutamol inhaler",
+      "form": "inhaler",
+      "route": "inhaled",
+      "canonicalUnit": "mcg",
+      "strengths": [
+        [
+          100
+        ]
+      ],
+      "aliases": [
+        "salbutamol inhaler",
+        "salbutamol puffer",
+        "albuterol inhaler",
+        "ventolin",
+        "asthalin"
+      ]
+    },
+    {
+      "id": "budesonide-formoterol-inhaler",
+      "ingredient": "budesonide/formoterol",
+      "display": "Budesonide-formoterol inhaler",
+      "form": "inhaler",
+      "route": "inhaled",
+      "canonicalUnit": "mcg",
+      "strengths": [
+        [
+          160,
+          4.5
+        ],
+        [
+          200,
+          6
+        ]
+      ],
+      "aliases": [
+        "budesonide formoterol",
+        "symbicort",
+        "foracort"
+      ]
+    },
+    {
+      "id": "prednisolone-tab",
+      "ingredient": "prednisolone",
+      "display": "Prednisolone tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          5
+        ],
+        [
+          10
+        ],
+        [
+          20
+        ]
+      ],
+      "aliases": [
+        "prednisolone",
+        "wysolone",
+        "deltacortril"
+      ]
+    },
+    {
+      "id": "gabapentin-cap",
+      "ingredient": "gabapentin",
+      "display": "Gabapentin capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          100
+        ],
+        [
+          300
+        ],
+        [
+          400
+        ]
+      ],
+      "aliases": [
+        "gabapentin",
+        "neurontin",
+        "gabapin"
+      ]
+    },
+    {
+      "id": "cetirizine-tab",
+      "ingredient": "cetirizine",
+      "display": "Cetirizine tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          10
+        ]
+      ],
+      "aliases": [
+        "cetirizine",
+        "zyrtec",
+        "okacet"
+      ]
+    },
+    {
+      "id": "montelukast-tab",
+      "ingredient": "montelukast",
+      "display": "Montelukast tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          10
+        ]
+      ],
+      "aliases": [
+        "montelukast",
+        "singulair",
+        "montair"
+      ]
+    },
+    {
+      "id": "allopurinol-tab",
+      "ingredient": "allopurinol",
+      "display": "Allopurinol tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          100
+        ],
+        [
+          300
+        ]
+      ],
+      "aliases": [
+        "allopurinol",
+        "zyloric"
+      ]
+    },
+    {
+      "id": "tamsulosin-cap",
+      "ingredient": "tamsulosin",
+      "display": "Tamsulosin capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          0.4
+        ]
+      ],
+      "aliases": [
+        "tamsulosin",
+        "flomax",
+        "urimax"
+      ]
+    },
+    {
+      "id": "folic-acid-tab",
+      "ingredient": "folic acid",
+      "display": "Folic acid tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          1
+        ],
+        [
+          5
+        ]
+      ],
+      "aliases": [
+        "folic acid",
+        "folvite"
+      ]
+    },
+    {
+      "id": "vitamin-d3-cap",
+      "ingredient": "cholecalciferol",
+      "display": "Vitamin D3 capsule",
+      "form": "capsule",
+      "route": "oral",
+      "canonicalUnit": "iu",
+      "strengths": [
+        [
+          1000
+        ],
+        [
+          60000
+        ]
+      ],
+      "aliases": [
+        "vitamin d3",
+        "cholecalciferol",
+        "calcirol",
+        "d rise"
+      ]
+    },
+    {
+      "id": "ondansetron-tab",
+      "ingredient": "ondansetron",
+      "display": "Ondansetron tablet",
+      "form": "tablet",
+      "route": "oral",
+      "canonicalUnit": "mg",
+      "strengths": [
+        [
+          4
+        ],
+        [
+          8
+        ]
+      ],
+      "aliases": [
+        "ondansetron",
+        "zofran",
+        "emeset"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "core-checks",
+      "description": "After a save in src/core or tests: typecheck and run the property tests with 25 cases each. Silent on success; prints the failure to the agent otherwise. Disable with enabled:false if it feels slow.",
+      "trigger": "PostFileSave",
+      "matcher": "(^|/)(src/core|tests)/.*\\.tsx?$",
+      "action": { "type": "command", "command": "node scripts/hooks/run-check.mjs typecheck test:props:fast" },
+      "timeout": 180,
+      "enabled": true
+    }
+  ]
+}

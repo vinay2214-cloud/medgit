@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "task-done-checks",
+      "description": "After a spec task finishes executing: typecheck, lint and run the unit and golden tests. If this trigger name differs in your Kiro version, pick 'Post Task Execution' in the Hooks panel.",
+      "trigger": "PostTaskExecution",
+      "action": { "type": "command", "command": "node scripts/hooks/run-check.mjs typecheck lint test" },
+      "timeout": 300,
+      "enabled": true
+    }
+  ]
+}

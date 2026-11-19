@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "traceability",
+      "description": "After saving a tasks.md or a test: check that every requirement reference points to a requirement that exists.",
+      "trigger": "PostFileSave",
+      "matcher": "(\\.kiro/specs/[^/]+/tasks\\.md|(^|/)(tests|e2e)/.*\\.tsx?)$",
+      "action": { "type": "command", "command": "node scripts/check-traceability.mjs" },
+      "timeout": 20,
+      "enabled": true
+    }
+  ]
+}

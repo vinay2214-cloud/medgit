@@ -1,0 +1,598 @@
+{
+  "schema": "medgit.scenario/1",
+  "id": "hero",
+  "title": "After a hospital stay: four lists, six discrepancies",
+  "blurb": "A 72-year-old is home after an admission. The hospital, GP, pharmacy and the patient each hold a different version of her medicines.",
+  "patient": {
+    "label": "Sample Patient A",
+    "age": 72,
+    "sex": "F"
+  },
+  "syntheticNotice": "SYNTHETIC DATA. Invented for a software demonstration. Not a real patient. Not for clinical use.",
+  "sources": [
+    {
+      "id": "hospital",
+      "label": "Hospital discharge list",
+      "kind": "prescriber",
+      "asOf": "2026-11-14",
+      "items": [
+        {
+          "name": "Metformin tablet",
+          "strength": "500 mg",
+          "frequency": "1-0-1"
+        },
+        {
+          "name": "Atorvastatin",
+          "strength": "20 mg",
+          "frequency": "HS"
+        },
+        {
+          "name": "Amlodipine",
+          "strength": "5 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Aspirin",
+          "strength": "75 mg",
+          "frequency": "OD",
+          "status": "active"
+        },
+        {
+          "name": "Cotrimoxazole DS",
+          "strength": "800/160 mg",
+          "frequency": "BD",
+          "note": "5-day course"
+        },
+        {
+          "name": "Paracetamol",
+          "strength": "500 mg",
+          "frequency": "PRN"
+        },
+        {
+          "name": "Levothyroxine",
+          "strength": "50 mcg",
+          "frequency": "mane"
+        },
+        {
+          "name": "Pantoprazole",
+          "strength": "40 mg",
+          "frequency": "OD"
+        }
+      ]
+    },
+    {
+      "id": "gp",
+      "label": "GP record",
+      "kind": "prescriber",
+      "asOf": "2026-10-30",
+      "items": [
+        {
+          "name": "Metformin",
+          "strength": "500 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Atorvastatin",
+          "strength": "20 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Amlodipine",
+          "strength": "5 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Aspirin",
+          "strength": "75 mg",
+          "frequency": "OD",
+          "status": "stopped"
+        },
+        {
+          "name": "Paracetamol",
+          "strength": "500 mg",
+          "frequency": "PRN"
+        },
+        {
+          "name": "Levothyroxine",
+          "strength": "50 mcg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Pantoprazole",
+          "strength": "40 mg",
+          "frequency": "OD"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "label": "Pharmacy dispensing history",
+      "kind": "dispenser",
+      "asOf": "2026-11-12",
+      "items": [
+        {
+          "name": "Metformin 500 mg tab",
+          "frequency": "BD"
+        },
+        {
+          "name": "Atorvastatin",
+          "strength": "20 mg",
+          "frequency": "1-0-0"
+        },
+        {
+          "name": "Amlodipine",
+          "strength": "10 mg",
+          "frequency": "1-0-0"
+        },
+        {
+          "name": "Aspirin",
+          "strength": "75 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Paracetamol",
+          "strength": "500 mg",
+          "frequency": "SOS"
+        },
+        {
+          "name": "Levothyroxine",
+          "strength": "0.05 mg",
+          "frequency": "1-0-0"
+        },
+        {
+          "name": "Pantoprazole",
+          "strength": "40 mg",
+          "frequency": "1-0-0"
+        }
+      ]
+    },
+    {
+      "id": "patient",
+      "label": "Patient-reported at home",
+      "kind": "patient",
+      "asOf": "2026-11-15",
+      "items": [
+        {
+          "name": "Glycomet",
+          "strength": "500 mg",
+          "frequency": "once a day"
+        },
+        {
+          "name": "Atorvastatin",
+          "strength": "20 mg",
+          "frequency": "at night"
+        },
+        {
+          "name": "Amlodipine",
+          "strength": "5 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Ecosprin 75",
+          "strength": "75 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Dolo 650",
+          "strength": "650 mg",
+          "frequency": "when required"
+        },
+        {
+          "name": "Asthalin inhaler",
+          "strength": "100 mcg",
+          "frequency": "SOS"
+        },
+        {
+          "name": "Thyronorm",
+          "strength": "50 mcg",
+          "frequency": "every morning"
+        },
+        {
+          "name": "Pantoprazole",
+          "strength": "40 mg",
+          "frequency": "OD"
+        }
+      ]
+    }
+  ],
+  "priorCommits": [
+    {
+      "message": "Reconcile medicines after admission",
+      "author": {
+        "role": "pharmacist",
+        "name": "Demo Pharmacist"
+      },
+      "at": "2026-06-02T10:00:00Z",
+      "items": [
+        {
+          "name": "Metformin",
+          "strength": "500 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Atorvastatin",
+          "strength": "20 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Amlodipine",
+          "strength": "5 mg",
+          "frequency": "OD"
+        }
+      ]
+    },
+    {
+      "message": "Add aspirin, paracetamol and levothyroxine after clinic review",
+      "author": {
+        "role": "clinician",
+        "name": "Demo Clinician"
+      },
+      "at": "2026-09-10T09:30:00Z",
+      "items": [
+        {
+          "name": "Metformin",
+          "strength": "500 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Atorvastatin",
+          "strength": "20 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Amlodipine",
+          "strength": "5 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Aspirin",
+          "strength": "75 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Paracetamol",
+          "strength": "500 mg",
+          "frequency": "PRN"
+        },
+        {
+          "name": "Levothyroxine",
+          "strength": "50 mcg",
+          "frequency": "OD"
+        }
+      ]
+    }
+  ],
+  "demoScript": [
+    {
+      "conflictId": "metformin-tab::FREQUENCY",
+      "role": "clinician",
+      "decision": {
+        "type": "choose",
+        "source": "hospital"
+      },
+      "reasonCode": "CONFIRMED_WITH_PATIENT",
+      "note": "Prescribed twice daily. Patient counselled on adherence."
+    },
+    {
+      "conflictId": "amlodipine-tab::DOSE",
+      "role": "clinician",
+      "decision": {
+        "type": "escalate"
+      },
+      "reasonCode": "NEEDS_PHARMACIST_REVIEW",
+      "note": "Pharmacy dispensed 10 mg. Records say 5 mg."
+    },
+    {
+      "conflictId": "amlodipine-tab::DOSE",
+      "role": "pharmacist",
+      "decision": {
+        "type": "choose",
+        "source": "hospital"
+      },
+      "reasonCode": "PER_DISPENSING_RECORD",
+      "note": "Dispensing error confirmed. 5 mg is correct."
+    },
+    {
+      "conflictId": "aspirin-tab::STATUS",
+      "role": "clinician",
+      "decision": {
+        "type": "choose",
+        "source": "gp"
+      },
+      "reasonCode": "VERIFIED_WITH_PRESCRIBER",
+      "note": ""
+    },
+    {
+      "conflictId": "cotrimoxazole-tab::OMISSION",
+      "role": "clinician",
+      "decision": {
+        "type": "include"
+      },
+      "reasonCode": "PER_DISCHARGE_SUMMARY",
+      "note": "Short course started in hospital."
+    },
+    {
+      "conflictId": "paracetamol-tab::DOSE",
+      "role": "clinician",
+      "decision": {
+        "type": "choose",
+        "source": "hospital"
+      },
+      "reasonCode": "CLINICAL_JUDGEMENT",
+      "note": "Patient tablets are 650 mg. Switch to 500 mg."
+    },
+    {
+      "conflictId": "salbutamol-inhaler::OMISSION",
+      "role": "clinician",
+      "decision": {
+        "type": "include"
+      },
+      "reasonCode": "CONFIRMED_WITH_PATIENT",
+      "note": "Inhaler found at home. Add to the list."
+    }
+  ],
+  "expected": {
+    "normalised": {
+      "hospital": {
+        "amlodipine-tab": "5 mg|1/day|active",
+        "aspirin-tab": "75 mg|1/day|active",
+        "atorvastatin-tab": "20 mg|1/day|active",
+        "cotrimoxazole-tab": "800/160 mg|2/day|active",
+        "levothyroxine-tab": "50 mcg|1/day|active",
+        "metformin-tab": "500 mg|2/day|active",
+        "pantoprazole-tab": "40 mg|1/day|active",
+        "paracetamol-tab": "500 mg|prn|active"
+      },
+      "gp": {
+        "amlodipine-tab": "5 mg|1/day|active",
+        "aspirin-tab": "75 mg|1/day|stopped",
+        "atorvastatin-tab": "20 mg|1/day|active",
+        "levothyroxine-tab": "50 mcg|1/day|active",
+        "metformin-tab": "500 mg|2/day|active",
+        "pantoprazole-tab": "40 mg|1/day|active",
+        "paracetamol-tab": "500 mg|prn|active"
+      },
+      "pharmacy": {
+        "amlodipine-tab": "10 mg|1/day|active",
+        "aspirin-tab": "75 mg|1/day|active",
+        "atorvastatin-tab": "20 mg|1/day|active",
+        "levothyroxine-tab": "50 mcg|1/day|active",
+        "metformin-tab": "500 mg|2/day|active",
+        "pantoprazole-tab": "40 mg|1/day|active",
+        "paracetamol-tab": "500 mg|prn|active"
+      },
+      "patient": {
+        "amlodipine-tab": "5 mg|1/day|active",
+        "aspirin-tab": "75 mg|1/day|active",
+        "atorvastatin-tab": "20 mg|1/day|active",
+        "levothyroxine-tab": "50 mcg|1/day|active",
+        "metformin-tab": "500 mg|1/day|active",
+        "pantoprazole-tab": "40 mg|1/day|active",
+        "paracetamol-tab": "650 mg|prn|active",
+        "salbutamol-inhaler": "100 mcg|prn|active"
+      }
+    },
+    "issues": {},
+    "clean": [
+      {
+        "drugKey": "atorvastatin-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      },
+      {
+        "drugKey": "levothyroxine-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      },
+      {
+        "drugKey": "pantoprazole-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "added"
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "amlodipine-tab::DOSE",
+        "kind": "DOSE",
+        "claims": {
+          "gp": "5 mg",
+          "hospital": "5 mg",
+          "patient": "5 mg",
+          "pharmacy": "10 mg"
+        }
+      },
+      {
+        "id": "aspirin-tab::STATUS",
+        "kind": "STATUS",
+        "claims": {
+          "gp": "stopped",
+          "hospital": "active",
+          "patient": "active",
+          "pharmacy": "active"
+        }
+      },
+      {
+        "id": "cotrimoxazole-tab::OMISSION",
+        "kind": "OMISSION",
+        "claims": {
+          "gp": null,
+          "hospital": "800/160 mg|2/day|active",
+          "patient": null,
+          "pharmacy": null
+        }
+      },
+      {
+        "id": "metformin-tab::FREQUENCY",
+        "kind": "FREQUENCY",
+        "claims": {
+          "gp": "2/day",
+          "hospital": "2/day",
+          "patient": "1/day",
+          "pharmacy": "2/day"
+        }
+      },
+      {
+        "id": "paracetamol-tab::DOSE",
+        "kind": "DOSE",
+        "claims": {
+          "gp": "500 mg",
+          "hospital": "500 mg",
+          "patient": "650 mg",
+          "pharmacy": "500 mg"
+        }
+      },
+      {
+        "id": "salbutamol-inhaler::OMISSION",
+        "kind": "OMISSION",
+        "claims": {
+          "gp": null,
+          "hospital": null,
+          "patient": "100 mcg|prn|active",
+          "pharmacy": null
+        }
+      }
+    ],
+    "removedVsBase": []
+  },
+  "demoCommit": {
+    "message": "Reconcile medicines at discharge",
+    "author": {
+      "role": "pharmacist",
+      "name": "Demo Pharmacist"
+    },
+    "at": "2026-11-20T10:00:00Z"
+  },
+  "expectedAfterDemoScript": {
+    "commitIndexNote": "Commit indexes: 0 and 1 are priorCommits, 2 is the commit made by the demo script.",
+    "entries": {
+      "amlodipine-tab": "5 mg|1/day|active",
+      "aspirin-tab": "75 mg|1/day|stopped",
+      "atorvastatin-tab": "20 mg|1/day|active",
+      "cotrimoxazole-tab": "800/160 mg|2/day|active",
+      "levothyroxine-tab": "50 mcg|1/day|active",
+      "metformin-tab": "500 mg|2/day|active",
+      "pantoprazole-tab": "40 mg|1/day|active",
+      "paracetamol-tab": "500 mg|prn|active",
+      "salbutamol-inhaler": "100 mcg|prn|active"
+    },
+    "diffVsHead": {
+      "added": [
+        "cotrimoxazole-tab",
+        "pantoprazole-tab",
+        "salbutamol-inhaler"
+      ],
+      "removed": [],
+      "changed": [
+        {
+          "drugKey": "aspirin-tab",
+          "field": "status",
+          "from": "active",
+          "to": "stopped"
+        }
+      ]
+    },
+    "blame": {
+      "amlodipine-tab": {
+        "blamedCommit": 0,
+        "reasonCodes": [],
+        "lastDecision": {
+          "commit": 2,
+          "reasonCodes": [
+            "PER_DISPENSING_RECORD"
+          ]
+        }
+      },
+      "aspirin-tab": {
+        "blamedCommit": 2,
+        "reasonCodes": [
+          "VERIFIED_WITH_PRESCRIBER"
+        ],
+        "lastDecision": {
+          "commit": 2,
+          "reasonCodes": [
+            "VERIFIED_WITH_PRESCRIBER"
+          ]
+        }
+      },
+      "atorvastatin-tab": {
+        "blamedCommit": 0,
+        "reasonCodes": [],
+        "lastDecision": null
+      },
+      "cotrimoxazole-tab": {
+        "blamedCommit": 2,
+        "reasonCodes": [
+          "PER_DISCHARGE_SUMMARY"
+        ],
+        "lastDecision": {
+          "commit": 2,
+          "reasonCodes": [
+            "PER_DISCHARGE_SUMMARY"
+          ]
+        }
+      },
+      "levothyroxine-tab": {
+        "blamedCommit": 1,
+        "reasonCodes": [],
+        "lastDecision": null
+      },
+      "metformin-tab": {
+        "blamedCommit": 0,
+        "reasonCodes": [],
+        "lastDecision": {
+          "commit": 2,
+          "reasonCodes": [
+            "CONFIRMED_WITH_PATIENT"
+          ]
+        }
+      },
+      "pantoprazole-tab": {
+        "blamedCommit": 2,
+        "reasonCodes": [],
+        "lastDecision": null
+      },
+      "paracetamol-tab": {
+        "blamedCommit": 1,
+        "reasonCodes": [],
+        "lastDecision": {
+          "commit": 2,
+          "reasonCodes": [
+            "CLINICAL_JUDGEMENT"
+          ]
+        }
+      },
+      "salbutamol-inhaler": {
+        "blamedCommit": 2,
+        "reasonCodes": [
+          "CONFIRMED_WITH_PATIENT"
+        ],
+        "lastDecision": {
+          "commit": 2,
+          "reasonCodes": [
+            "CONFIRMED_WITH_PATIENT"
+          ]
+        }
+      }
+    },
+    "counts": {
+      "entries": 9,
+      "resolutionsEffective": 6,
+      "conflictsTotal": 6
+    }
+  }
+}

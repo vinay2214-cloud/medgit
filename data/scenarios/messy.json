@@ -1,0 +1,255 @@
+{
+  "schema": "medgit.scenario/1",
+  "id": "messy",
+  "title": "Messy lists: brands, units and unknown items",
+  "blurb": "Brand names, grams against milligrams, missing strengths, a herbal remedy and an unreadable frequency. This case checks that nothing is silently dropped.",
+  "patient": {
+    "label": "Sample Patient C",
+    "age": 58,
+    "sex": "F"
+  },
+  "syntheticNotice": "SYNTHETIC DATA. Invented for a software demonstration. Not a real patient. Not for clinical use.",
+  "sources": [
+    {
+      "id": "hospital",
+      "label": "Hospital discharge list",
+      "kind": "prescriber",
+      "asOf": "2026-11-12",
+      "items": [
+        {
+          "name": "Septran DS",
+          "strength": "800/160mg",
+          "frequency": "twice a day"
+        },
+        {
+          "name": "Glucophage 1000",
+          "frequency": "BD"
+        },
+        {
+          "name": "Levothyroxine Na",
+          "strength": "0.1 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Paracetamol",
+          "strength": "1 g",
+          "frequency": "1-1-1"
+        }
+      ]
+    },
+    {
+      "id": "gp",
+      "label": "GP record",
+      "kind": "prescriber",
+      "asOf": "2026-11-01",
+      "items": [
+        {
+          "name": "co-trimoxazole 800/160 mg",
+          "frequency": "2 times a day"
+        },
+        {
+          "name": "Metformin HCl",
+          "strength": "1000 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Levothyroxine",
+          "strength": "100 mcg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Paracetamol 500mg",
+          "frequency": "PRN"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "label": "Pharmacy dispensing history",
+      "kind": "dispenser",
+      "asOf": "2026-11-10",
+      "items": [
+        {
+          "name": "Bactrim DS",
+          "strength": "800/160 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Glycomet 1000",
+          "strength": "1000 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Thyronorm",
+          "strength": "100 mcg",
+          "frequency": "as directed"
+        },
+        {
+          "name": "Dolo 500",
+          "strength": "500 mg",
+          "frequency": "SOS"
+        }
+      ]
+    },
+    {
+      "id": "patient",
+      "label": "Patient-reported at home",
+      "kind": "patient",
+      "asOf": "2026-11-13",
+      "items": [
+        {
+          "name": "Ashwagandha churna",
+          "strength": "1 tsp",
+          "frequency": "daily"
+        },
+        {
+          "name": "Septrin DS",
+          "strength": "800/160 mg",
+          "frequency": "twice daily"
+        },
+        {
+          "name": "Glucophage",
+          "strength": "1 g",
+          "frequency": "BD"
+        },
+        {
+          "name": "Thyroxine",
+          "strength": "100 mcg",
+          "frequency": "morning"
+        },
+        {
+          "name": "Salbutamol",
+          "form": "tab",
+          "strength": "4 mg",
+          "frequency": "TDS"
+        }
+      ]
+    }
+  ],
+  "priorCommits": [],
+  "demoScript": [],
+  "expected": {
+    "normalised": {
+      "hospital": {
+        "cotrimoxazole-tab": "800/160 mg|2/day|active",
+        "levothyroxine-tab": "100 mcg|1/day|active",
+        "metformin-tab": "null|2/day|active",
+        "paracetamol-tab": "1000 mg|3/day|active"
+      },
+      "gp": {
+        "cotrimoxazole-tab": "800/160 mg|2/day|active",
+        "levothyroxine-tab": "100 mcg|1/day|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "paracetamol-tab": "500 mg|prn|active"
+      },
+      "pharmacy": {
+        "cotrimoxazole-tab": "800/160 mg|2/day|active",
+        "levothyroxine-tab": "100 mcg|null|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "paracetamol-tab": "500 mg|prn|active"
+      },
+      "patient": {
+        "cotrimoxazole-tab": "800/160 mg|2/day|active",
+        "levothyroxine-tab": "100 mcg|1/day|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "unmapped:ashwagandha-churna": "null|1/day|active",
+        "unmapped:salbutamol": "4 mg|3/day|active"
+      }
+    },
+    "issues": {
+      "hospital": [
+        "UNPARSED_STRENGTH"
+      ],
+      "pharmacy": [
+        "UNPARSED_FREQUENCY"
+      ],
+      "patient": [
+        "UNMAPPED_DRUG",
+        "UNPARSED_STRENGTH"
+      ]
+    },
+    "clean": [
+      {
+        "drugKey": "cotrimoxazole-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": null
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "levothyroxine-tab::FREQUENCY",
+        "kind": "FREQUENCY",
+        "claims": {
+          "gp": "1/day",
+          "hospital": "1/day",
+          "patient": "1/day",
+          "pharmacy": "null"
+        }
+      },
+      {
+        "id": "metformin-tab::DOSE",
+        "kind": "DOSE",
+        "claims": {
+          "gp": "1000 mg",
+          "hospital": "null",
+          "patient": "1000 mg",
+          "pharmacy": "1000 mg"
+        }
+      },
+      {
+        "id": "paracetamol-tab::OMISSION",
+        "kind": "OMISSION",
+        "claims": {
+          "gp": "500 mg|prn|active",
+          "hospital": "1000 mg|3/day|active",
+          "patient": null,
+          "pharmacy": "500 mg|prn|active"
+        }
+      },
+      {
+        "id": "paracetamol-tab::DOSE",
+        "kind": "DOSE",
+        "claims": {
+          "gp": "500 mg",
+          "hospital": "1000 mg",
+          "pharmacy": "500 mg"
+        }
+      },
+      {
+        "id": "paracetamol-tab::FREQUENCY",
+        "kind": "FREQUENCY",
+        "claims": {
+          "gp": "prn",
+          "hospital": "3/day",
+          "pharmacy": "prn"
+        }
+      },
+      {
+        "id": "unmapped:ashwagandha-churna::OMISSION",
+        "kind": "OMISSION",
+        "claims": {
+          "gp": null,
+          "hospital": null,
+          "patient": "null|1/day|active",
+          "pharmacy": null
+        }
+      },
+      {
+        "id": "unmapped:salbutamol::OMISSION",
+        "kind": "OMISSION",
+        "claims": {
+          "gp": null,
+          "hospital": null,
+          "patient": "4 mg|3/day|active",
+          "pharmacy": null
+        }
+      }
+    ],
+    "removedVsBase": []
+  }
+}

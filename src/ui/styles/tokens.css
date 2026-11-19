@@ -1,0 +1,114 @@
+/*
+ * MedGit design tokens. The only place colour values live.
+ * Components use these variables (directly or through Tailwind's @theme mapping in index.css).
+ * Contrast was checked against WCAG 2.2 AA: text pairs at 4.5:1 or better,
+ * borders and focus rings at 3:1 or better, in both themes.
+ */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* surfaces */
+  --bg: #e6eeec;           /* drape: pale green-grey, the surgical sheet */
+  --surface: #ffffff;
+  --surface-2: #f1f5f4;
+  --line: #c5d2cf;         /* decorative dividers */
+  --line-strong: #6b7f86;  /* input borders, anything that must be seen (3:1) */
+
+  /* ink */
+  --ink: #12263a;          /* scrub navy */
+  --ink-muted: #4a5b6b;
+
+  /* brand and selection: suture violet */
+  --violet: #5b3fa0;
+  --on-violet: #ffffff;
+  --focus: #5b3fa0;
+
+  /* states */
+  --conflict-fg: #a3213a;  --conflict-bg: #fbe6ea;   /* wound crimson */
+  --resolved-fg: #17663f;  --resolved-bg: #e1f3e9;   /* chromic green */
+  --escalated-fg: #8a4f00; --escalated-bg: #fff0d1;  /* iodine amber */
+  --agreed-fg: #1f4e79;    --agreed-bg: #e4eef7;
+
+  /* source threads */
+  --src-hospital: #2257b0;  /* prolene blue */
+  --src-gp: #0f766e;        /* teal */
+  --src-pharmacy: #8a5200;  /* amber-brown */
+  --src-patient: #a3315f;   /* rose */
+  --on-src: #ffffff;
+
+  /* seam (stitch) */
+  --seam-open: var(--conflict-fg);
+  --seam-closed: var(--resolved-fg);
+  --seam-dash: 7 5;         /* dash gap, used by SeamLine */
+  --seam-dash-closed: 12 0; /* same list length so the browser can interpolate to a solid line */
+  --seam-width: 1.75px;
+  --seam-close-ms: 360ms;
+
+  /* shape and spacing */
+  --radius-cell: 4px;
+  --radius-row: 6px;
+  --radius-dialog: 10px;
+  --radius-pill: 999px;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px;
+
+  /* type */
+  --font-sans: "Atkinson Hyperlegible Next", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+
+  /* elevation: only popovers and dialogs */
+  --shadow-pop: 0 6px 24px rgb(18 38 58 / 0.18);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0d1a1e;           /* night ward */
+  --surface: #14242a;
+  --surface-2: #1b2f36;
+  --line: #2b4048;
+  --line-strong: #7c969e;
+
+  --ink: #e7eef0;
+  --ink-muted: #9fb2b8;
+
+  --violet: #bba6f5;
+  --on-violet: #1a0f3a;
+  --focus: #bba6f5;
+
+  --conflict-fg: #ff9dae;  --conflict-bg: #3a1520;
+  --resolved-fg: #7fdda9;  --resolved-bg: #12301f;
+  --escalated-fg: #f6bf63; --escalated-bg: #3a2a0a;
+  --agreed-fg: #8fc1ee;    --agreed-bg: #12283c;
+
+  --src-hospital: #8db4f5;
+  --src-gp: #5fd4c8;
+  --src-pharmacy: #f0b15c;
+  --src-patient: #f2a0c4;
+  --on-src: #0d1a1e;
+
+  --shadow-pop: 0 6px 24px rgb(0 0 0 / 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0d1a1e; --surface: #14242a; --surface-2: #1b2f36;
+    --line: #2b4048; --line-strong: #7c969e;
+    --ink: #e7eef0; --ink-muted: #9fb2b8;
+    --violet: #bba6f5; --on-violet: #1a0f3a; --focus: #bba6f5;
+    --conflict-fg: #ff9dae;  --conflict-bg: #3a1520;
+    --resolved-fg: #7fdda9;  --resolved-bg: #12301f;
+    --escalated-fg: #f6bf63; --escalated-bg: #3a2a0a;
+    --agreed-fg: #8fc1ee;    --agreed-bg: #12283c;
+    --src-hospital: #8db4f5; --src-gp: #5fd4c8; --src-pharmacy: #f0b15c; --src-patient: #f2a0c4;
+    --on-src: #0d1a1e;
+    --shadow-pop: 0 6px 24px rgb(0 0 0 / 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --seam-close-ms: 0ms; }
+}

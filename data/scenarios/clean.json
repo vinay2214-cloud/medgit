@@ -1,0 +1,271 @@
+{
+  "schema": "medgit.scenario/1",
+  "id": "clean",
+  "title": "Routine review: everyone agrees",
+  "blurb": "Four lists written in four different styles. After normalising, they say the same thing, so there is nothing to resolve.",
+  "patient": {
+    "label": "Sample Patient B",
+    "age": 64,
+    "sex": "M"
+  },
+  "syntheticNotice": "SYNTHETIC DATA. Invented for a software demonstration. Not a real patient. Not for clinical use.",
+  "sources": [
+    {
+      "id": "hospital",
+      "label": "Hospital clinic list",
+      "kind": "prescriber",
+      "asOf": "2026-11-10",
+      "items": [
+        {
+          "name": "Telmisartan",
+          "strength": "40 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Rosuvastatin",
+          "strength": "10 mg",
+          "frequency": "HS"
+        },
+        {
+          "name": "Metformin",
+          "strength": "1000 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Clopidogrel",
+          "strength": "75 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Omeprazole",
+          "strength": "20 mg",
+          "frequency": "OD"
+        }
+      ]
+    },
+    {
+      "id": "gp",
+      "label": "GP record",
+      "kind": "prescriber",
+      "asOf": "2026-11-03",
+      "items": [
+        {
+          "name": "Telma 40",
+          "strength": "40 mg",
+          "frequency": "once daily"
+        },
+        {
+          "name": "Crestor",
+          "strength": "10 mg",
+          "frequency": "at night"
+        },
+        {
+          "name": "Glucophage",
+          "strength": "1000 mg",
+          "frequency": "twice daily"
+        },
+        {
+          "name": "Plavix",
+          "strength": "75 mg",
+          "frequency": "once daily"
+        },
+        {
+          "name": "Omez",
+          "strength": "20 mg",
+          "frequency": "once daily"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "label": "Pharmacy dispensing history",
+      "kind": "dispenser",
+      "asOf": "2026-11-08",
+      "items": [
+        {
+          "name": "Telmisartan tablet",
+          "strength": "0.04 g",
+          "frequency": "1-0-0"
+        },
+        {
+          "name": "Rosuvas",
+          "strength": "10 mg",
+          "frequency": "0-0-1"
+        },
+        {
+          "name": "Metformin HCl",
+          "strength": "1 g",
+          "frequency": "1-0-1"
+        },
+        {
+          "name": "Clopilet",
+          "strength": "75 mg",
+          "frequency": "1-0-0"
+        },
+        {
+          "name": "Omeprazole capsule",
+          "strength": "20 mg",
+          "frequency": "1-0-0"
+        }
+      ]
+    },
+    {
+      "id": "patient",
+      "label": "Patient-reported at home",
+      "kind": "patient",
+      "asOf": "2026-11-09",
+      "items": [
+        {
+          "name": "Telma",
+          "strength": "40 mg",
+          "frequency": "every morning"
+        },
+        {
+          "name": "Rosuvastatin",
+          "strength": "10 mg",
+          "frequency": "at bedtime"
+        },
+        {
+          "name": "Glycomet",
+          "strength": "1000 mg",
+          "frequency": "2 times a day"
+        },
+        {
+          "name": "Clopidogrel",
+          "strength": "75 mg",
+          "frequency": "morning"
+        },
+        {
+          "name": "Omez",
+          "strength": "20 mg",
+          "frequency": "morning"
+        }
+      ]
+    }
+  ],
+  "priorCommits": [
+    {
+      "message": "Reconcile medicines at annual review",
+      "author": {
+        "role": "pharmacist",
+        "name": "Demo Pharmacist"
+      },
+      "at": "2026-05-20T11:00:00Z",
+      "items": [
+        {
+          "name": "Telmisartan",
+          "strength": "40 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Rosuvastatin",
+          "strength": "10 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Metformin",
+          "strength": "1000 mg",
+          "frequency": "BD"
+        },
+        {
+          "name": "Clopidogrel",
+          "strength": "75 mg",
+          "frequency": "OD"
+        },
+        {
+          "name": "Omeprazole",
+          "strength": "20 mg",
+          "frequency": "OD"
+        }
+      ]
+    }
+  ],
+  "demoScript": [],
+  "expected": {
+    "normalised": {
+      "hospital": {
+        "clopidogrel-tab": "75 mg|1/day|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "omeprazole-cap": "20 mg|1/day|active",
+        "rosuvastatin-tab": "10 mg|1/day|active",
+        "telmisartan-tab": "40 mg|1/day|active"
+      },
+      "gp": {
+        "clopidogrel-tab": "75 mg|1/day|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "omeprazole-cap": "20 mg|1/day|active",
+        "rosuvastatin-tab": "10 mg|1/day|active",
+        "telmisartan-tab": "40 mg|1/day|active"
+      },
+      "pharmacy": {
+        "clopidogrel-tab": "75 mg|1/day|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "omeprazole-cap": "20 mg|1/day|active",
+        "rosuvastatin-tab": "10 mg|1/day|active",
+        "telmisartan-tab": "40 mg|1/day|active"
+      },
+      "patient": {
+        "clopidogrel-tab": "75 mg|1/day|active",
+        "metformin-tab": "1000 mg|2/day|active",
+        "omeprazole-cap": "20 mg|1/day|active",
+        "rosuvastatin-tab": "10 mg|1/day|active",
+        "telmisartan-tab": "40 mg|1/day|active"
+      }
+    },
+    "issues": {},
+    "clean": [
+      {
+        "drugKey": "clopidogrel-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      },
+      {
+        "drugKey": "metformin-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      },
+      {
+        "drugKey": "omeprazole-cap",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      },
+      {
+        "drugKey": "rosuvastatin-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      },
+      {
+        "drugKey": "telmisartan-tab",
+        "agreedBy": [
+          "gp",
+          "hospital",
+          "patient",
+          "pharmacy"
+        ],
+        "changeVsBase": "unchanged"
+      }
+    ],
+    "conflicts": [],
+    "removedVsBase": []
+  }
+}

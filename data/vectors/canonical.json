@@ -1,0 +1,100 @@
+{
+  "schema": "medgit.vectors/1",
+  "note": "Fixed test vectors for canonical JSON and SHA-256. Computed with a reference implementation (sorted keys by code point, separators ',' and ':', no escaping of non-ASCII). All values are within the Basic Multilingual Plane so UTF-16 and code point ordering agree.",
+  "canonical": [
+    {
+      "name": "sorts keys at every depth",
+      "value": {
+        "b": 1,
+        "a": {
+          "d": [
+            3,
+            2,
+            1
+          ],
+          "c": null
+        }
+      },
+      "canonical": "{\"a\":{\"c\":null,\"d\":[3,2,1]},\"b\":1}",
+      "sha256": "99292fc65b1416433c73754bd2133c24f100c4da791e825377abb6756eeb69ae"
+    },
+    {
+      "name": "preserves array order",
+      "value": [
+        {
+          "z": 1,
+          "y": 2
+        },
+        [
+          2,
+          1
+        ]
+      ],
+      "canonical": "[{\"y\":2,\"z\":1},[2,1]]",
+      "sha256": "f4638f2bd3f7ca6724573f1a502da83f7afbc22dfaa50d8f55f419c9fc8675c6"
+    },
+    {
+      "name": "unicode is kept, not escaped",
+      "value": {
+        "drug": "Co-trimoxazole 800/160 µg é"
+      },
+      "canonical": "{\"drug\":\"Co-trimoxazole 800/160 µg é\"}",
+      "sha256": "4d69d3a44c22aaa4c9f3b6d6f6491a2b5f129a267dab5fdf721eda1f7c480bde"
+    },
+    {
+      "name": "numbers print like JSON.stringify",
+      "value": {
+        "n": [
+          0,
+          1,
+          -1,
+          1.5,
+          20,
+          0.05,
+          100
+        ]
+      },
+      "canonical": "{\"n\":[0,1,-1,1.5,20,0.05,100]}",
+      "sha256": "65e48cdc720b037d62b684a651364d1f068393e0f68e1c526d838c969e61833d"
+    },
+    {
+      "name": "empty containers",
+      "value": {
+        "a": [],
+        "b": {}
+      },
+      "canonical": "{\"a\":[],\"b\":{}}",
+      "sha256": "9959f7ea5ff37e0cf81634a894845a335eb6e26fbad0877944e9bc009b4f0644"
+    },
+    {
+      "name": "nested strings with quotes and backslash",
+      "value": {
+        "s": "a\"b\\c"
+      },
+      "canonical": "{\"s\":\"a\\\"b\\\\c\"}",
+      "sha256": "97a1049b950c4967857a84a892616be14cfa33824839b42b557d9299074e9ea6"
+    }
+  ],
+  "sha256": [
+    {
+      "name": "sha256 of empty string",
+      "input": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sha256 of abc",
+      "input": "abc",
+      "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    }
+  ],
+  "rejects": [
+    {
+      "name": "NaN is rejected",
+      "jsNumber": "NaN"
+    },
+    {
+      "name": "Infinity is rejected",
+      "jsNumber": "Infinity"
+    }
+  ]
+}

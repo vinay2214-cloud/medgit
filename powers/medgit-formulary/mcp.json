@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "medgit-formulary": {
+      "command": "npx",
+      "args": ["tsx", "mcp/formulary-server.ts"],
+      "disabled": true,
+      "autoApprove": []
+    }
+  }
+}
