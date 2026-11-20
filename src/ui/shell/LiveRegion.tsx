@@ -48,7 +48,10 @@ export function LiveRegionProvider({ children }: LiveRegionProviderProps) {
   useEffect(() => {
     announceRegistry.current = announceMessage;
     return () => {
-      announceRegistry.current = null;
+      // Only clear if this instance is still the active one
+      if (announceRegistry.current === announceMessage) {
+        announceRegistry.current = null;
+      }
     };
   }, [announceMessage]);
 
