@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-violet: var(--violet);
+  --color-on-violet: var(--on-violet);
+  --color-conflict: var(--conflict-fg);
+  --color-conflict-bg: var(--conflict-bg);
+  --color-resolved: var(--resolved-fg);
+  --color-resolved-bg: var(--resolved-bg);
+  --color-escalated: var(--escalated-fg);
+  --color-escalated-bg: var(--escalated-bg);
+  --color-agreed: var(--agreed-fg);
+  --color-agreed-bg: var(--agreed-bg);
+  --color-src-hospital: var(--src-hospital);
+  --color-src-gp: var(--src-gp);
+  --color-src-pharmacy: var(--src-pharmacy);
+  --color-src-patient: var(--src-patient);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-cell: var(--radius-cell);
+  --radius-row: var(--radius-row);
+  --radius-dialog: var(--radius-dialog);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+}

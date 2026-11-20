@@ -1,0 +1,16 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'node',
+    passWithNoTests: true,
+    exclude: ['**/node_modules/**', '**/._*', '**/.DS_Store'],
+  },
+  resolve: {
+    alias: {
+      '@core': new URL('./src/core', import.meta.url).pathname,
+      '@ui': new URL('./src/ui', import.meta.url).pathname,
+    },
+  },
+});
