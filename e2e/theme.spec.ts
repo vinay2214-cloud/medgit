@@ -7,7 +7,7 @@
 
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:5173';
+const BASE_URL = process.env.BASE_URL || 'http://localhost:4173';
 
 test.describe('Theme: Browser Verification', () => {
   
