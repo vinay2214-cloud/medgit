@@ -244,10 +244,11 @@ test.describe('Task 4: Design System Browser Verification', () => {
       console.log('Light theme tokens:', lightTokens);
       
       // Verify tokens resolve to actual values (not empty or self-referencing)
-      expect(lightTokens.bg).toMatch(/^#[0-9a-f]{3,8}$/i);
-      expect(lightTokens.ink).toMatch(/^#[0-9a-f]{3,8}$/i);
-      expect(lightTokens.surface).toMatch(/^#[0-9a-f]{3,8}$/i);
-      expect(lightTokens.violet).toMatch(/^#[0-9a-f]{3,8}$/i);
+      // Accept valid CSS hex lengths: 3, 4, 6, or 8 digits (#rgb, #rgba, #rrggbb, #rrggbbaa)
+      expect(lightTokens.bg).toMatch(/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i);
+      expect(lightTokens.ink).toMatch(/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i);
+      expect(lightTokens.surface).toMatch(/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i);
+      expect(lightTokens.violet).toMatch(/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i);
       expect(lightTokens.fontSans).toContain('Atkinson Hyperlegible');
       expect(lightTokens.fontMono).toContain('Atkinson Hyperlegible Mono');
       
