@@ -26,7 +26,7 @@ export default tseslint.config(
     ],
   },
   {
-    files: ['scripts/**/*.mjs', 'tests/**/*.ts', 'vitest.config.ts', 'playwright.config.ts'],
+    files: ['scripts/**/*.mjs', 'tests/**/*.ts', 'e2e/**/*.ts', 'vitest.config.ts', 'playwright.config.ts'],
     languageOptions: {
       globals: {
         process: 'readonly',

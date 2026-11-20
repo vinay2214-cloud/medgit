@@ -5,7 +5,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     passWithNoTests: true,
-    exclude: ['**/node_modules/**', '**/._*', '**/.DS_Store'],
+    exclude: ['**/node_modules/**', '**/._*', '**/.DS_Store', '**/e2e/**'],
   },
   resolve: {
     alias: {
