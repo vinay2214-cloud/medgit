@@ -1,6 +1,8 @@
 /**
  * Component tests for LiveRegion production API.
  * Tests the actual announce() function and provider lifecycle.
+ *
+ * @vitest-environment jsdom
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
