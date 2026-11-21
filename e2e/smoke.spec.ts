@@ -47,3 +47,21 @@ test('a view that needs a case falls back to Start when none is open', async ({ 
   await expect(page.locator('h1')).toHaveText('Reconcile medicine lists');
   await expect(page).toHaveURL(/#\/start$/);
 });
+
+// Regression: the deployed site logged a 404 for the missing favicon. No console errors anywhere in the flow.
+test('no console errors from load to history', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('console', (m) => {
+    if (m.type() === 'error') errors.push(m.text());
+  });
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('./');
+  await page.getByTestId('scenario-open-hero').click();
+  await page.getByTestId('row-metformin-tab').click();
+  await page.getByTestId('nav-history').click();
+  await page.waitForLoadState('networkidle');
+  expect(errors).toEqual([]);
+  // the icon is served
+  const icon = await page.request.get(new URL('favicon.svg', page.url()).toString());
+  expect(icon.status()).toBe(200);
+});

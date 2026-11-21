@@ -6,7 +6,8 @@
 
 Built for **Kiroween 2026** (category: Frankenstein: version control stitched onto clinical reconciliation).
 
-- Live app: REPLACE-WITH-DEPLOYED-URL
+- Live app: https://vinay2214-cloud.github.io/medgit/
+- Source: https://github.com/vinay2214-cloud/medgit
 - Demo video: REPLACE-WITH-VIDEO-URL
 - How the project was built (Kiro and Claude Code, stated honestly): [`docs/KIRO_LOG.md`](docs/KIRO_LOG.md)
 
@@ -47,7 +48,7 @@ npm run test:props                              # property tests only, 100 runs 
 npx playwright install chromium && npm run e2e  # end-to-end, accessibility, responsive
 npm run validate:data && npm run check:compliance && npm run check:traceability
 ```
-Current counts: 351 Vitest tests in 25 files (including 39 golden tests and 27 fast-check properties at 100 runs each), and 100 Playwright tests. Every one of the 264 acceptance criteria in `.kiro/specs/*/requirements.md` is cited by at least one test (`node scripts/check-traceability.mjs --report`).
+Current counts: 351 Vitest tests in 25 files (including 39 golden tests and 27 fast-check properties at 100 runs each), and 101 Playwright tests. CI runs all of them on every push. To run the end-to-end suites against the deployed site instead of a local build: `PLAYWRIGHT_BASE_URL=https://vinay2214-cloud.github.io/medgit/ npx playwright test e2e/hero.spec.ts e2e/review.spec.ts e2e/a11y.spec.ts e2e/import-export.spec.ts e2e/smoke.spec.ts`. Every one of the 264 acceptance criteria in `.kiro/specs/*/requirements.md` is cited by at least one test (`node scripts/check-traceability.mjs --report`).
 
 The golden expectations in `data/scenarios/*.json` were written by hand and cross-checked with an independent Python oracle (`python3 docs/reference/reference.py --check`). Each property was shown to fail on a deliberately broken implementation before being trusted (details in `docs/KIRO_LOG.md`).
 
@@ -61,6 +62,7 @@ data/*.json  ->  src/core (pure TypeScript)                 ->  src/ui (React)
 - `src/core` has no React, no browser APIs, no clock and no randomness; time is injected. An architecture test enforces this.
 - The UI never decides anything: it dispatches actions, and the reducer calls the core to validate them.
 - No backend, no network calls at runtime, no analytics, self-hosted fonts. A static build that works offline after load.
+- The production bundle is one 508 kB script (153 kB gzipped), mostly React DOM, so Vite prints its 500 kB chunk warning. Lazy-loading the views was measured and rejected: it saved about 10 kB gzipped on first load but made opening a scenario 4 to 8 times slower.
 - Stack: TypeScript, React, Vite, Tailwind CSS v4, Radix primitives (shadcn/ui), `@noble/hashes`, Vitest, fast-check, Playwright, axe.
 
 ## Project layout

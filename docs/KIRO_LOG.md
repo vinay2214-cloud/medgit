@@ -44,6 +44,14 @@ Running notes for the hackathon write-up. Short, factual entries. Only record wh
 - **Copy buttons under 40 px.** Found by a touch-target e2e (review-ui 14.6); enlarged.
 - Kiro-era `e2e/app-shell.spec.ts` asserted that the mark is an `h1` and that the first Tab lands on the skip link; review-ui 14.8 and 1.5 changed both. The tests were updated to the new contract (one `h1` per view; the skip link is still the first tab stop from the top of the document).
 
+## Release (21 Nov 2026, Claude Code)
+- Public repository created at https://github.com/vinay2214-cloud/medgit and the existing history pushed unchanged (no force-push). Before publishing: gitleaks over all commits found no leaks; no `.env`, key or database files were ever committed; dependency licences are permissive or MPL-2.0 (build tooling only).
+- GitHub Pages enabled with the Actions source. CI (check and e2e jobs) and the Pages deploy passed on GitHub; CI ran 25 Vitest files and 100 Playwright tests on Linux.
+- Live site https://vinay2214-cloud.github.io/medgit/ verified with the e2e suites pointed at it (`PLAYWRIGHT_BASE_URL`): hero flow with golden diff and blame, axe in both themes, case-file and FHIR downloads, responsive widths. Only one origin contacted.
+- **Bug found on the live site:** a missing favicon made every page load log a 404 console error. Added `public/favicon.svg` and a no-console-errors e2e test.
+- Bundle: one 508 kB script (153 kB gzipped). Lazy-loading the views was measured: about 10 kB gzipped less on first load, but opening a scenario went from about 100 ms to 390-840 ms locally. Rejected and documented.
+- The official Devpost rules page refused automated fetching (HTTP 403), so Kiro-usage eligibility was not checked by the agent; the owner must read the rules.
+
 ## Decisions taken without changing the contract (flagged for the human)
 - review-ui 8.5 says that after a sign-off every medicine shows as "agreed". Under the unanimity merge the sources still disagree, so the app carries the head commit's decisions forward when the head signed off exactly these source versions: rows read "Decided", seams are closed, nothing is left to decide, and each source column keeps showing what that source really says. It does not rewrite the sources.
 - Chart columns and marker groups use sorted source ids (gp, hospital, patient, pharmacy), as review-ui 4.1 says ("id order"). The UX spec's examples list hospital first.

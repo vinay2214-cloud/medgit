@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// Set PLAYWRIGHT_BASE_URL (ending in "/") to run the suite against a deployed site instead of a local preview,
+// for example PLAYWRIGHT_BASE_URL=https://vinay2214-cloud.github.io/medgit/
+const remote = process.env.PLAYWRIGHT_BASE_URL;
+
 export default defineConfig({
   testDir: './e2e',
   // macOS AppleDouble files (._*) appear on non-HFS volumes; they are not tests
@@ -10,7 +14,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:4173',
+    baseURL: remote ?? 'http://localhost:4173/',
     trace: 'on-first-retry',
   },
   projects: [
@@ -19,7 +23,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
-  webServer: {
+  webServer: remote ? undefined : {
     command: 'npm run build && npm run preview',
     url: 'http://localhost:4173',
     reuseExistingServer: !process.env.CI,

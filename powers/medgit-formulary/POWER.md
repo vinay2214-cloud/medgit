@@ -3,7 +3,7 @@ name: "medgit-formulary"
 displayName: "MedGit formulary"
 description: "Look up and normalise medicine names, strengths and frequencies against MedGit's synthetic formulary, so agents test against the same rules as the app."
 keywords: ["medgit", "formulary", "medication", "normalise", "strength", "frequency"]
-author: "REPLACE-WITH your name"
+author: "JANYAVULA VINAY"
 ---
 
 # MedGit formulary power (optional, build after the Day 10 gate)
