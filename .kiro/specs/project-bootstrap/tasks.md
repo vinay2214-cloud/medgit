@@ -43,7 +43,7 @@ Run `npm run typecheck && npm test` after each task. Keep commits small. Do not 
   - Write `README.md` with the required sections. Leave `REPLACE-WITH` markers only for the live URL and the repo owner.
   - _Requirements: 1.3, 1.4_
 
-- [ ] 9. Data validation script
+- [x] 9. Data validation script
   - Implement `scripts/validate-data.mjs`. Run it against the current `data/`. It must pass.
   - Add a unit test that feeds the validators small bad objects and expects failures.
   - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7_
