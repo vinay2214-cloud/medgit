@@ -32,7 +32,7 @@ test.describe('Task 6: Screenshots', () => {
 
         // Take screenshot
         await page.screenshot({
-          path: `e2e/screenshots/task6-appshell-${viewport.name}-${theme}.png`,
+          path: `e2e/__screens__/task6-appshell-${viewport.name}-${theme}.png`,
           fullPage: true,
         });
       });

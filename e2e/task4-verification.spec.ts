@@ -161,7 +161,7 @@ test.describe('Task 4: Design System Browser Verification', () => {
         
         // Take screenshot for visual verification
         await page.screenshot({
-          path: `e2e/screenshots/task4-${viewport.name.toLowerCase()}-light.png`,
+          path: `e2e/__screens__/task4-${viewport.name.toLowerCase()}-light.png`,
           fullPage: false,
         });
         
@@ -219,7 +219,7 @@ test.describe('Task 4: Design System Browser Verification', () => {
       
       // Take screenshot
       await page.screenshot({
-        path: 'e2e/screenshots/task4-desktop-dark.png',
+        path: 'e2e/__screens__/task4-desktop-dark.png',
         fullPage: false,
       });
     });
