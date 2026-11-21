@@ -22,3 +22,6 @@ Thumbs.db
 
 # IMPORTANT FOR KIROWEEN: never ignore .kiro/ or anything inside it.
 # Ignoring it can disqualify the submission. Do not add a rule that matches it.
+
+# Playwright screenshots written by e2e runs
+e2e/__screens__/

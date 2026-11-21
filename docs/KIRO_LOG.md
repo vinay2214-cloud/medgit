@@ -7,7 +7,7 @@ Running notes for the hackathon write-up. Short, factual entries. Only record wh
 - Repository created on: 2026-11-19 (first commit date).
 - **Two development tools were used, in sequence.**
   - **Kiro** (IDE): project-bootstrap tasks 1 to 9: toolchain, design tokens, theme provider, app shell and shadcn primitives, compliance script, README, data validation script (commits `f293bea` to `64d4ec1`, 19 to 21 Nov 2026).
-  - **Claude Code** (Anthropic's CLI agent, not a Kiro product): from 21 Nov 2026 onwards: bootstrap task 10 (workflow action versions), and the formulary-normaliser, merge-engine, history-audit and interop-export specs. Claude Code followed the same Kiro specs, steering files and task lists; it did not run inside Kiro, so Kiro hooks and Kiro custom agents did not fire during that work.
+  - **Claude Code** (Anthropic's CLI agent, not a Kiro product): from 21 Nov 2026 onwards: bootstrap tasks 10 to 12, and all of the formulary-normaliser, merge-engine, history-audit, interop-export and review-ui specs. Claude Code followed the same Kiro specs, steering files and task lists; it did not run inside Kiro, so Kiro hooks and Kiro custom agents did not fire during that work.
 - Work done with Claude Code is not Kiro work and is not described as such anywhere in this repository.
 
 ## Specs
@@ -36,6 +36,17 @@ Running notes for the hackathon write-up. Short, factual entries. Only record wh
   - Make `verifyChain` skip the id recomputation → P-H3 failed.
   - Make case-file export drop `resolutions` → P-I1 failed.
 - No property found a bug in the shipped code; the golden tests and the Python oracle (`docs/reference/reference.py --check`) agreed with the implementation on first run.
+
+## Bugs found and fixed during the Claude Code phase
+- **Type scale never applied (from bootstrap task 4).** `index.css` declared `--font-size-*` in `@theme`, but Tailwind v4 reads `--text-*`, so `text-title`, `text-display`, `text-small` and the rest generated no CSS; every heading rendered at body size. Found by looking at the first Reconcile screenshot. Fixed by adding `--text-*` keys; regression test in `e2e/smoke.spec.ts` asserts the `h1` font sizes.
+- **Header nav unclickable at 768 px.** The control cluster overlapped the nav (`min-w-0` let the left side shrink under it). Found by the new no-horizontal-scroll e2e; fixed in `AppShell.tsx`; the e2e now clicks the nav at seven widths.
+- **Horizontal scroll at 360 and 390 px** (header nav, filter group, chart minimum widths) and a **nested button** inside narrow-screen cards. Found by measuring `scrollWidth` at seven widths; fixed; covered by `e2e/review.spec.ts`.
+- **Copy buttons under 40 px.** Found by a touch-target e2e (review-ui 14.6); enlarged.
+- Kiro-era `e2e/app-shell.spec.ts` asserted that the mark is an `h1` and that the first Tab lands on the skip link; review-ui 14.8 and 1.5 changed both. The tests were updated to the new contract (one `h1` per view; the skip link is still the first tab stop from the top of the document).
+
+## Decisions taken without changing the contract (flagged for the human)
+- review-ui 8.5 says that after a sign-off every medicine shows as "agreed". Under the unanimity merge the sources still disagree, so the app carries the head commit's decisions forward when the head signed off exactly these source versions: rows read "Decided", seams are closed, nothing is left to decide, and each source column keeps showing what that source really says. It does not rewrite the sources.
+- Chart columns and marker groups use sorted source ids (gp, hospital, patient, pharmacy), as review-ui 4.1 says ("id order"). The UX spec's examples list hospital first.
 
 ## Numbers (fill in at the end)
 - Specs: 6. Requirements (acceptance criteria): see `node scripts/check-traceability.mjs --report`.

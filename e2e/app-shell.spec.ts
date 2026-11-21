@@ -18,11 +18,14 @@ test.describe('Application Shell', () => {
     await expect(footer).toBeVisible();
   });
 
-  test('renders MedGit header mark', async ({ page }) => {
+  // The mark is not a heading: review-ui 14.8 requires exactly one h1 per view.
+  // Validates: review-ui 14.8
+  test('renders the MedGit mark and exactly one h1', async ({ page }) => {
     await page.goto('/');
 
-    const heading = page.getByRole('heading', { name: 'MedGit' });
-    await expect(heading).toBeVisible();
+    await expect(page.locator('header').getByText('MedGit', { exact: true })).toBeVisible();
+    await expect(page.locator('h1')).toHaveCount(1);
+    await expect(page.locator('h1')).toHaveText('Reconcile medicine lists');
   });
 
   test('skip link is hidden but focusable', async ({ page }) => {
@@ -32,8 +35,10 @@ test.describe('Application Shell', () => {
     const skipLink = page.getByRole('link', { name: /skip to main content/i });
     await expect(skipLink).toBeAttached();
 
-    // Focus the skip link (Tab key)
+    // Focus the skip link (Tab key) from a blurred document
+    await page.evaluate(() => { document.body.tabIndex = -1; document.body.focus(); });
     await page.keyboard.press('Tab');
+    await expect(skipLink).toBeFocused();
 
     // When focused, it should be visible
     await expect(skipLink).toBeVisible();
@@ -78,9 +83,10 @@ test.describe('Application Shell', () => {
         const footer = page.getByText('Synthetic data. Not for clinical use.');
         await expect(footer).toBeVisible();
 
-        // Header mark should be visible
-        const heading = page.getByRole('heading', { name: 'MedGit' });
-        await expect(heading).toBeVisible();
+        // Header mark and the view's single h1 should be visible
+        await expect(page.locator('header').getByText('MedGit', { exact: true })).toBeVisible();
+        await expect(page.locator('h1')).toHaveCount(1);
+        await expect(page.locator('h1')).toBeVisible();
       });
     }
   });
@@ -133,6 +139,8 @@ test.describe('Application Shell', () => {
   test.describe('Accessibility', () => {
     test('has visible focus indicators', async ({ page }) => {
       await page.goto('/');
+      // review-ui 1.5 focuses the Hero button on load; start from a blurred document to test tab order
+      await page.evaluate(() => { document.body.tabIndex = -1; document.body.focus(); });
 
       // Tab to skip link and verify focus styling
       await page.keyboard.press('Tab');
@@ -145,6 +153,8 @@ test.describe('Application Shell', () => {
 
     test('maintains focus order', async ({ page }) => {
       await page.goto('/');
+      // review-ui 1.5 focuses the Hero button on load; start from a blurred document to test tab order
+      await page.evaluate(() => { document.body.tabIndex = -1; document.body.focus(); });
 
       // First tab should focus skip link
       await page.keyboard.press('Tab');

@@ -35,4 +35,5 @@ Prerequisite: history-audit checkpoint passed. Do not edit `requirements.md`. No
 
 - [x] 8. FHIR import (cut first)
   - Only after the review-ui checkpoint: implement `fromFhirBundle`, property P-I3, tests for invalid input.
+  - Note: built together with the FHIR export (before the review-ui checkpoint) because it was small and P-I3 needed it; it is not exposed in the interface.
   - _Requirements: 4.1, 4.2, 4.3, 4.4_

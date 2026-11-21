@@ -52,10 +52,10 @@ Run `npm run typecheck && npm test` after each task. Keep commits small. Do not 
   - Review `.github/workflows/ci.yml` and `deploy-pages.yml`; fix action versions to current ones.
   - _Requirements: 4.1, 4.2_
 
-- [ ] 11. Smoke end-to-end test
+- [x] 11. Smoke end-to-end test
   - Write `e2e/smoke.spec.ts`: chip and footer visible, theme toggle works, no cross-origin requests.
   - _Requirements: 3.5, 3.3, 4.3_
 
-- [ ] 12. Checkpoint
+- [x] 12. Checkpoint
   - Run typecheck, lint, test, validate:data, build, check:compliance, e2e. All must pass.
   - Update `docs/KIRO_LOG.md` with what this spec taught about working with Kiro.

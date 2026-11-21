@@ -1,88 +1,66 @@
 /**
  * Application shell: skip link, header, main, footer, live region.
- * Host for the polite live region and top-level layout structure.
+ * The product mark is not a heading: each view has its own single h1.
+ * Validates: project-bootstrap 3.5, 3.6; review-ui 14.8
  */
 
 import { type ReactNode } from 'react';
+import { Mark } from '../components/Primitives';
+import { copy } from '../copy';
 import { SyntheticChip } from './SyntheticChip';
 import { LiveRegionProvider } from './LiveRegion';
 
 interface AppShellProps {
   children: ReactNode;
-  /**
-   * Optional slot for case title (shown when a scenario is loaded)
-   */
   caseTitle?: ReactNode;
-  /**
-   * Optional slot for role switcher (clinician/pharmacist)
-   */
+  navSlot?: ReactNode;
   roleSlot?: ReactNode;
-  /**
-   * Optional slot for theme menu
-   */
   themeSlot?: ReactNode;
-  /**
-   * Optional slot for export menu
-   */
   exportSlot?: ReactNode;
 }
 
-export function AppShell({
-  children,
-  caseTitle,
-  roleSlot,
-  themeSlot,
-  exportSlot,
-}: AppShellProps) {
+export function AppShell({ children, caseTitle, navSlot, roleSlot, themeSlot, exportSlot }: AppShellProps) {
   return (
     <LiveRegionProvider>
-      {/* Skip link - visually hidden until focused */}
       <a
         href="#main"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main')?.focus();
+        }}
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-violet focus:text-on-violet focus:rounded-[var(--radius-row)] focus:no-underline"
       >
-        Skip to main content
+        {copy.nav.skip}
       </a>
 
       <div className="min-h-screen flex flex-col bg-bg">
-        {/* Header */}
         <header className="border-b border-line bg-surface">
-          <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-4">
-            <div className="flex items-center justify-between gap-4 flex-wrap">
-              {/* Left side: Mark and case title */}
-              <div className="flex items-center gap-4 flex-1 min-w-0">
-                <h1 className="text-title font-bold text-ink">
-                  MedGit
-                </h1>
-                {caseTitle && (
-                  <div className="hidden md:block text-body text-ink-muted truncate">
-                    {caseTitle}
-                  </div>
-                )}
-              </div>
-
-              {/* Right side: Synthetic chip and action slots */}
-              <div className="flex items-center gap-3 flex-wrap">
-                <SyntheticChip />
-                {roleSlot}
-                {themeSlot}
-                {exportSlot}
-              </div>
+          <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-3 flex items-center gap-x-4 gap-y-2 flex-wrap">
+            <div className="flex items-center gap-x-4 gap-y-1 flex-wrap">
+              <Mark />
+              {navSlot}
+            </div>
+            <div className="flex items-center gap-2 flex-wrap justify-end ml-auto">
+              <SyntheticChip />
+              {roleSlot}
+              {themeSlot}
+              {exportSlot}
             </div>
           </div>
+          {caseTitle && (
+            <div className="max-w-[1440px] mx-auto px-4 md:px-6 pb-3 -mt-1 text-small text-ink-muted wrap-anywhere" data-testid="case-title">
+              {caseTitle}
+            </div>
+          )}
         </header>
 
-        {/* Main content area */}
-        <main id="main" className="flex-1 max-w-[1440px] w-full mx-auto px-4 md:px-6 py-6">
+        <main id="main" tabIndex={-1} className="flex-1 max-w-[1440px] w-full mx-auto px-4 md:px-6 py-6 focus:outline-none">
           {children}
         </main>
 
-        {/* Footer */}
         <footer className="border-t border-line bg-surface py-4 mt-auto">
           <div className="max-w-[1440px] mx-auto px-4 md:px-6">
-            <p className="text-small text-ink-muted text-center">
-              Synthetic data. Not for clinical use.
-            </p>
+            <p className="text-small text-ink-muted text-center">{copy.notice.synthetic}</p>
           </div>
         </footer>
       </div>
